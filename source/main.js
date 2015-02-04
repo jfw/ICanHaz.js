@@ -41,6 +41,9 @@
                     var result = Mustache.to_html(ich.templates[name], data, ich.templates);
                     return (ich.$ && !raw) ? ich.$(trim(result)) : result;
                 };
+                if (typeof ich.$ !== 'undefined') {
+                    $(document).trigger('template-loaded', [name]);
+                }
             }
         },
 
